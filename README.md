@@ -1,24 +1,27 @@
-# README
+# The gossip project - projet THP 26 juillet 2018
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Après avoir cloné le repo
 
-Things you may want to cover:
+Pour créer une BDD, faire :
+- `bundle install`
+- `rails db:migrate`
+- `rails db:seed`
 
-* Ruby version
+## Le contenu
 
-* System dependencies
+A été créée une base de données, avec une application rails, en utilisant la gem ActiveRecord.
 
-* Configuration
+### Le projet
 
-* Database creation
+Un super blog trop cool
 
-* Database initialization
+- Les utilisateurs peuvent créer des potins
+- Les utilisateurs en créant des potins peuvent mettre un ou plusieurs tags sur les potins
+- Les utilisateurs peuvent commenter des potins
+- Il est possible de commenter des commentaires
+- Les utilisateurs peuvent liker des potins
+- Les utilisateurs peuvent contacter leur commères favories en MP pour des exclus mondiales
 
-* How to run the test suite
+## La team
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ce programme est made in Strasbourg, by Soraya FRUCTUOSO, Samaneh VAEZI et Hugo PAYET avec amour ! Bonne correction les amis :kissing_heart:
