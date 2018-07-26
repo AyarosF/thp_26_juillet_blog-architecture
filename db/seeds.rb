@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+City.create(name: "Strasbourg", postal_code: "67000")
+
+for i in (1..10)
+	User.create(first_name: "User#{i}", last_name: "User#{i}", description: "description#{i}", email: "aaaa", city_id: 1)
+end
+
+for i in (1..50)
+	PrivateMessage.create(content: "blablaOnSenFout", sender_id: i)
+	a = rand(4)
+	a.times do
+	ReceivedMessage.create(private_message_id: i, recipient_id: rand(10))
+end
+end
