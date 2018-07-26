@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_193407) do
+ActiveRecord::Schema.define(version: 2018_07_26_210359) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -53,6 +53,33 @@ ActiveRecord::Schema.define(version: 2018_07_26_193407) do
     t.index ["comment_id"], name: "index_likes_on_comment_id"
     t.index ["gossip_id"], name: "index_likes_on_gossip_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "private_messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "sender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sender_id"], name: "index_private_messages_on_sender_id"
+  end
+
+  create_table "received_messages", force: :cascade do |t|
+    t.integer "private_message_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["private_message_id"], name: "index_received_messages_on_private_message_id"
+    t.index ["recipient_id"], name: "index_received_messages_on_recipient_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "comment_id"
+    t.index ["comment_id"], name: "index_replies_on_comment_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
