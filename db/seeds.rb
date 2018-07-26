@@ -25,8 +25,8 @@ for i in (1..50)
 	PrivateMessage.create(content: a, sender_id: b)
 	c = rand(3)
 	c.times do
-	ReceivedMessage.create(private_message_id: b, recipient_id: rand(50))
-end
+	   ReceivedMessage.create(private_message_id: b, recipient_id: rand(50))
+  end
 end
 
 50.times do
@@ -54,6 +54,7 @@ end
   Comment.create(content: a.sample, user_id: rand(50), gossip_id: rand(50) )
 end
 
+# comme a été ajouté optional:true au moment des associations, il est possible de ne pas remplir un gossip_id ou un comment_id (nécessaire car un like ne peut pas concerner les 2)
 50.times do
 	Like.create(user_id: rand(50), gossip_id: rand(50))
 	Like.create(user_id: rand(50), comment_id: rand(50))
