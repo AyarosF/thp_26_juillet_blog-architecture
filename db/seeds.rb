@@ -36,8 +36,22 @@ end
 end
 
 50.times do
-a = ['Super article', 'Wahou, je savais pas', 'Devenez riche sans effort depuis chez vous, visitez le site devenezrichesanseffortdepuischezvous.fr','Quelqu\'un peut me traduire cet article ?', 'Génial','Je vais partager cette info sur FB','Trop fun lol','Whoop whoop','Salut, qui veut échanger avec moi sur le sujet ?' ]
-Comment.create(content: a.sample, user_id: rand(50), gossip_id: rand(50) )
+  a = Faker::Book.genre
+  Tag.create(title:"##{a}")
+end
+
+for i in (1..Gossip.all.count)
+  Tag.find(rand(1..Tag.all.count)).gossips << Gossip.find(i)
+end
+
+for i in (1..Tag.all.count)
+  Gossip.find(rand(1..Gossip.all.count)).tags << Tag.find(i)
+end
+
+
+50.times do
+  a = ['Super article', 'Wahou, je savais pas', 'Devenez riche sans effort depuis chez vous, visitez le site devenezrichesanseffortdepuischezvous.fr','Quelqu\'un peut me traduire cet article ?', 'Génial','Je vais partager cette info sur FB','Trop fun lol','Whoop whoop','Salut, qui veut échanger avec moi sur le sujet ?' ]
+  Comment.create(content: a.sample, user_id: rand(50), gossip_id: rand(50) )
 end
 
 50.times do
